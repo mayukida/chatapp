@@ -1,0 +1,154 @@
+<html>
+
+<head>
+    <title>ChatAPP!!</title>
+</head>
+
+<style>
+    
+    body {
+        background-color:cadetblue;
+        background-repeat: no-repeat;
+        font-family: 'Open Sans', sans-serif;
+    }
+    
+    #msgs {
+/*        height:420px;*/
+        height: calc(100% - 120px);
+        overflow: auto;
+/*        width:200px;*/
+        width: 100%;
+       
+    }
+
+    .bubble1 {
+        background-color:darkkhaki;
+        color:#fff;
+        border-radius: 10px;
+        padding:10px; 
+        float: left;
+        left:100px;
+    }
+
+    .bubble2 {
+        right: 0;
+        background-color:darksalmon;
+        color:#fff;
+        border-radius: 10px;
+        padding:10px; 
+        text-align: right;
+        float: right;
+    }
+
+    #text1 {
+/*        line-height: 45px;*/
+        width:100px;
+        bottom:50;
+        left:50;
+        position: fixed;
+        font-size: 12px;
+    }
+
+    #text2 {
+/*        line-height: 45px;*/
+        width:100px;
+        bottom:50;
+        right: 50;
+        position: fixed;
+        font-size: 12px;
+    }
+
+    .button {
+        bottom:;
+    }
+    
+    h6 {
+        width: 400px;
+    }
+    
+    </style>    
+    
+<body>
+    
+    <input type="text" id="text1" cols="30" rows="10" style="height:50px; width:230px" placeholder="Hello Person A! Type and press Enter." />
+    <input type="text" id="text2" cols="30" rows="10" style="height:50px; width:230px" placeholder="Hello Person B! Type and press Enter." />
+    
+
+    <div id="msgs"></div>
+
+
+    </body>
+
+<script>
+    
+    var send_but=document.getElementById("button");
+    var text1=document.getElementById("text1");
+    var text2=document.getElementById("text2");
+    var msgs=document.getElementById("msgs");
+
+
+    window.onkeyup=function(evt){
+
+        //for return
+        if(evt.keyCode==13){
+
+            //send content in text1 if it's not empty;
+            if(text1.value.trim() != ""){
+                msgs.innerHTML="<h6 class='bubble1'>"+text1.value+"</h6><div style='clear:both'></div>"+msgs.innerHTML;
+                }
+             //send content in text2 if it's not empty;
+            if(text2.value.trim() != ""){
+                msgs.innerHTML="<h6 class='bubble2'>"+text2.value+"</h6><div style='clear:both'></div>"+msgs.innerHTML;
+                }
+        
+            
+//            if(text1.value=="chicken" || text2.value=="chicken"){
+//                var img=document.createElement("img");
+//                img.src="http://www.southdacola.com/blog/wp-content/uploads/2014/06/chicken_sombrero.gif";
+//                img.style.height="50px";
+//                msgs.appendChild(img);
+//                }
+
+            if(text1.value == "chicken"){
+                    msgs.innerHTML= "<h6 class='bubble1'>"+"<img src= 'http://www.southdacola.com/blog/wp-content/uploads/2014/06/chicken_sombrero.gif' height='50px'>"+"</h6><div style='clear:both'></div>"+msgs.innerHTML;
+                    }
+
+            if(text2.value == "chicken"){
+                    msgs.innerHTML= "<h6 class='bubble2'>"+"<img src= 'http://www.southdacola.com/blog/wp-content/uploads/2014/06/chicken_sombrero.gif' height='50px'>"+"</h6><div style='clear:both'></div>"+msgs.innerHTML;
+                    }
+
+
+            text1.value="";
+            text2.value="";
+        }
+        
+        
+
+        
+// When I want to press button to send messages
+    
+//    send_but.onclick=function(){
+//        
+//        var words=document.createElement("h6");
+//        words.innerHTML=text.value;
+//        msgs.appendChild(words);
+//        
+//        //let's try prepend
+//        msgs.innerHTML="<h3 class='bubbles'>"+text.value+"</h3>"+msgs.innerHTML;
+//        text.value="";
+//}
+        
+        
+        //for spacebar
+//        if(evt.keyCode==32){
+//            msgs.innerHTML="<h3 class='bubbles'>"+text.value+"</h3>"+msgs.innerHTML;
+//            text.value="";
+//        }
+
+        
+    }
+
+    </script>
+
+
+</html>
